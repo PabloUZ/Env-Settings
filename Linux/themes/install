@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+
+sudo apt install gnome-tweaks
+sudo cp -r Kripton/ /usr/share/themes
+sudo cp -r OieIcons/ /usr/share/icons
+sudo cp -r volantes_cursor/ /usr/share/icons
+
+echo "####################"
+echo "        DONE        "
+echo "####################"
+
+read -s -k

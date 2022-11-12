@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo apt update && sudo apt upgrade && sudo apt install lolcat && echo "Update finished successfully" | lolcat
+sudo apt install wget curl && echo "Finished" | lolcat && read -sp $'Press Ctrl + C to finish or wait\n' -t 5
+sudo apt install git && echo "Finished" | lolcat && read -sp $'Press Ctrl + C to finish or wait\n' -t 5
+sudo apt install zsh && echo "Finished" | lolcat && read -sp $'Press Ctrl + C to finish or wait\n' -t 5
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo "Finished" | lolcat && read -sp $'Press Ctrl + C to finish or wait\n' -t 5
+sudo apt install tilix && echo "Finished" | lolcat && read -sp $'Press Ctrl + C to finish or wait\n' -t 5
+sudo update-alternatives --config x-terminal-emulator && echo "Finished" | lolcat && read -sp $'Press Ctrl + C to finish or wait\n' -t 5
+
+read -sp $'Press any key to finish' -n1

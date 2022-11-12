@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+sudo cp -r Fira_Code_v6.2/ /usr/share/fonts/FiraCode
+sudo cp -r JetBrainsMono-2.242/ /usr/share/fonts/JetBrainsMono
+
+sudo ls -alsh --group-directories-first /usr/share/fonts/
+
+echo "####################"
+echo "        DONE        "
+echo "####################"
+
+read -s -k
