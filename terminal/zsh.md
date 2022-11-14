@@ -48,6 +48,8 @@
 
 > After that, just close vim by pressing 'ESC' and then 'SHIFT+Z+Z'
 
+> Custom ZSH theme in ~/.oh-my-zsh/themes/
+
 > To see the changes, just run:
 ```bash
     $ zsh
