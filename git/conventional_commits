@@ -1,0 +1,65 @@
+#!/bin/zsh
+
+RED='\033[31m'
+BLUE='\033[34m'
+YELLOW='\033[33m'
+GREEN='\033[32m'
+RESET='\033[0m'
+MAGENTA='\033[35m'
+B='\033[1m'
+U='\033[4m'
+
+
+option=0
+
+clear
+
+echo "${BLUE}${B}${U}COMMIT${RESET}\n\n"
+
+echo "\t${YELLOW}1\t${MAGENTA}[FIX]\t${YELLOW}${B}Small changes such as bug fix${RESET}"
+echo "\t${YELLOW}2\t${MAGENTA}[FEAT]\t${YELLOW}${B}New features${RESET}"
+echo "\t${YELLOW}3\t${MAGENTA}[BREAKING CHANGE]\t${YELLOW}${B}Big changes such as ${RESET}"
+echo "\t${YELLOW}4\t${MAGENTA}[OTHER]\t${YELLOW}${B}Other changes${RESET}"
+echo "${RESET}"
+echo "\tEnter a number: \c"
+read -k 1 option
+echo ""
+result=""
+
+if [[ $option -eq 1 ]]; then
+    result="${result}[FIX] "
+
+elif [[ $option -eq 2 ]]; then
+    result="${result}[FEAT] "
+elif [[ $option -eq 3 ]]; then
+    result="${result}[BREAKING CHANGE] "
+elif [[ $option -eq 4 ]]; then
+    result="${result}[OTHER: "
+    other=""
+    echo "\t\tWhat is the commit about? \c"
+    read other
+    echo ""
+    result="${result}${other}] "
+    
+else
+    echo "\t${RED}${B}Option not found"
+    exit
+fi
+scope=""
+echo "\tScope (empty for none): \c"
+read scope
+echo ""
+if [[ $scope != "" ]]; then
+    result="${result}(${scope}): "
+else
+    result="${result}(NONE): "
+fi
+
+message=""
+while [[ $message = "" ]]; do
+    echo "\tEnter description: \c"
+    read message
+    echo ""
+done
+result="${result}${message}"
+git commit -m "${result}"
