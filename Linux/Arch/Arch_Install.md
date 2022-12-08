@@ -67,6 +67,11 @@ pacstrap /mnt base base-devel efibootmgr os-prober ntfs-3g networkmanager grub g
 ```bash
 pacstrap /mnt base base-devel efibootmgr os-prober ntfs-3g networkmanager grub gvfs gvfs-afc gvfs-mtp xdg-user-dirs linux linux-firmware nano vim dhcp
 ```
+> Si hay un error de tipo trusted:
+```bash
+pacman -Sy --needed archlinux-keyring
+```
+	despues, volver a intentar
 
 ### Portatil
 ```bash
@@ -275,6 +280,11 @@ pacstrap /mnt base base-devel grub os-prober ntfs-3g networkmanager gvfs gvfs-af
 ```bash
 pacstrap /mnt base base-devel grub os-prober ntfs-3g networkmanager gvfs gvfs-afc gvfs-mtp xdg-user-dirs linux linux-firmware nano vim dhcp
 ```
+> Si hay un error de tipo trusted:
+```bash
+pacman -Sy --needed archlinux-keyring
+```
+	despues, volver a intentar
 
 ### Portatil
 ```bash
