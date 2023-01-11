@@ -102,7 +102,7 @@ vim /etc/locale.gen
 ```
 > en_US.UTF-8 UTF-8
 ```bash
-echo LANG=es_CO.UTF-8 > /etc/locale.conf
+echo LANG=en_US.UTF-8 > /etc/locale.conf
 locale-gen
 ```
 ### configurar teclado
@@ -144,7 +144,7 @@ reboot
 ### permisos superusuario
 ```bash
 vim /etc/sudoers
-<usuario> ALL=(ALL) NOPASSWD:ALL
+<usuario> ALL=(ALL) ALL
 ```
 
 ### Habilitar tarjeta de red
@@ -314,7 +314,7 @@ vim /etc/locale.gen
 ```
 > en_US.UTF-8 UTF-8
 ```bash
-echo LANG=es_CO.UTF-8 > /etc/locale.conf
+echo LANG=en_US.UTF-8 > /etc/locale.conf
 locale-gen
 ```
 ### configurar teclado
@@ -358,7 +358,7 @@ reboot
 ### permisos superusuario
 ```bash
 vim /etc/sudoers
-<usuario> ALL=(ALL) NOPASSWD:ALL
+<usuario> ALL=(ALL) ALL
 ```
 
 
