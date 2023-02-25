@@ -2,6 +2,8 @@
 
 ## Programas Esenciales
 
+> Pacman
+
 ```bash
 root $ pacman -S <Paquete>
 ```
@@ -10,6 +12,7 @@ root $ pacman -S <Paquete>
 ```bash
 usuario $ sudo pacman -S <Paquete>
 ```
+- git
 - pcmanfm
 - rofi
 - picom
@@ -17,7 +20,27 @@ usuario $ sudo pacman -S <Paquete>
 - xautolock
 - arandr
 - xrandr
-- git
+
+### yay (AUR)
+```bash
+cd /opt
+
+sudo git clone https://aur.archlinux.org/yay.git
+
+id <usuario>
+
+sudo chown -R <usuario>:<grupo> ./yay
+
+cd yay
+
+makepkg -si
+```
+> yay
+```bash
+usuario $ yay -S <Paquete>
+```
+
+- brave-bin
 
 ## Archivo de i3
 ```bash
