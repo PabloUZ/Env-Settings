@@ -81,3 +81,7 @@
 > - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 > - [web-search](https://github.com/sineto/web-search)
 > - [oh-my-matrix](https://github.com/amstrad/oh-my-matrix)
+
+# Git Bash (Windows)
+
+> C:\Program Files\Git\etc\profile.d/git-prompt.sh
