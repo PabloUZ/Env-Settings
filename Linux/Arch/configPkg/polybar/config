@@ -1,0 +1,61 @@
+[colors]
+bg = #1f1f1f
+fg = #EFEFEF
+primary = #FF8F00
+
+[bar/top]
+width = 100%
+height = 30
+background = ${colors.bg}
+foreground = ${colors.fg}
+modules-left = i3
+modules-center = date
+modules-right = network
+
+
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+format-prefix = "  "
+label-focused = %index%
+label-focused-padding = 2
+label-focused-background = ${colors.primary}
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+
+
+
+[module/date]
+type = internal/date
+
+interval = 1.0
+time = %H:%M:%S
+date = %d / %m / %Y
+label = %date% | %time%
+
+
+[module/network]
+type = internal/network
+interface = enp0s3
+interface-type = wired
+interval = 5
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+
+
+label-connected = %ifname%
+label-connected-foreground = #eefafa
+
+label-disconnected = not connected
+label-disconnected-foreground = #66ffff
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈

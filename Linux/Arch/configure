@@ -1,0 +1,102 @@
+#!/bin/sh
+
+sudo pacman -Syyu --noconfirm
+
+
+
+sudo pacman -S git --noconfirm
+
+cd ~/
+mkdir temp
+cd temp
+git clone https://github.com/PabloUZ/Env-Settings.git
+cd ~
+cp -r ~/temp/Env-Settings/Linux/Arch/configPkg ~
+rm -rf ~/temp
+cd ~
+
+# YAY
+cd /opt
+
+echo $(pwd)
+
+sudo git clone https://aur.archlinux.org/yay.git
+
+
+echo "User: "
+read user
+echo "Group: "
+read group
+
+sudo chown -R $user:$group ./yay
+
+cd yay
+makepkg -si
+cd
+yay -S brave-bin --noconfirm
+
+
+# Graphics
+sudo pacman -S i3-wm --noconfirm
+sudo pacman -S i3lock --noconfirm
+sudo pacman -S xautolock --noconfirm
+sudo pacman -S polybar --noconfirm
+sudo pacman -S pcmanfm --noconfirm
+sudo pacman -S rofi --noconfirm
+sudo pacman -S picom --noconfirm
+sudo pacman -S nitrogen --noconfirm
+sudo pacman -S arandr --noconfirm
+sudo pacman -S imagemagick --noconfirm
+sudo pacman -S bluez bluez-utils --noconfirm
+sudo pacman -S blueman --noconfirm
+
+
+cp -r ~/configPkg/rofi ~/.config
+cp ~/configPkg/.xinitrc ~/
+cp -r ~/configPkg/wallpapers/ ~/Pictures
+convert ~/Pictures/wallpapers/lock.png -resize $(xrandr | awk '/current/ {print $8 $9}') ~/Pictures/wallpapers/lock.png
+cp -r ~/configPkg/picom ~/.config
+mkdir ~/.config/i3
+cp ~/configPkg/i3config ~/.config/i3/config
+rm -rf ~/.config/polybar || echo la carpeta no existe
+cp -r ~/configPkg/polybar ~/.config
+
+
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+
+
+
+# Tilix
+
+sudo pacman -S tilix --noconfirm
+sudo pacman -S zsh --noconfirm
+sudo pacman -S curl wget --noconfirm
+
+chsh -s /bin/zsh
+
+echo exit | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+cp ~/configPkg/zsh-pro1.zsh-theme ~/.oh-my-zsh/themes
+
+echo -e "237\nyy" | bash -c  "$(wget -qO- https://git.io/vQgMr)" 
+cp ~/configPkg/.zshrc ~/
+
+cd ~/.oh-my-zsh/plugins
+
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+cd
+
+# NVM
+
+export NVM_DIR="$HOME/.nvm" && (
+  git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+  cd "$NVM_DIR"
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"
+
+
+echo Execute the following:
+echo nitrogen --no-recurse ~/Pictures/wallpapers
