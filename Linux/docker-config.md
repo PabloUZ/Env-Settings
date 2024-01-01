@@ -26,5 +26,5 @@ sudo apt-get update
 ```
 3.
 ```bash
-sudo usermod -aG docker ${USER}
+sudo gpasswd -a $USER docker
 ```
