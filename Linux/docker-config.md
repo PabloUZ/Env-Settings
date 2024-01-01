@@ -27,4 +27,5 @@ sudo apt-get update
 3.
 ```bash
 sudo gpasswd -a $USER docker
+newgrp docker
 ```
