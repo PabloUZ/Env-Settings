@@ -159,3 +159,11 @@ export PATH="/home/pablo/.config/composer/vendor/bin:$PATH"
 
 # Created by `pipx` on 2024-01-13 19:39:20
 export PATH="$PATH:/home/pablo/.local/bin"
+
+
+# >>>> Vagrant command completion (start)
+fpath=(/usr/share/rubygems-integration/all/gems/vagrant-2.3.4/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+[ -f "/home/pablo/.ghcup/env" ] && . "/home/pablo/.ghcup/env" # ghcup-env
